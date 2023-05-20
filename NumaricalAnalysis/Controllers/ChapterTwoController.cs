@@ -5,7 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace NumaricalAnalysis.Controllers
 {
-    //Chapter2..
+    //Chapter2...
     public class ChapterTwoController : Controller
     {
         private readonly ISolveMatrix _solveMatrix;
