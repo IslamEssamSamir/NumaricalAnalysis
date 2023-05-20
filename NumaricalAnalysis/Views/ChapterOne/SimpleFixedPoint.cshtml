@@ -1,0 +1,60 @@
+﻿@model SimpleFixedPointViewModel
+
+@{
+    ViewData["Title"] = "Simple Fixed Point";
+}
+
+<div class="card mb-5">
+    <div class="card-body">
+        <h4 class="card-title">@ViewData["Title"]</h4>
+        <p class="card-description"> Numarical Analysis Project </p>
+        <form asp-action="SimpleFixedPoint" method="post" class="forms-sample">
+           
+            <div class="row">
+                <div class="form-group">
+                    <label for="exampleInputName1">f(x)</label>
+                    <input asp-for="equation" type="text" class="form-control" id="exampleInputName1" placeholder="f(x)">
+                    <h6 class="text-gray">for example:  -2 + (7 * x) - ( 5 * pow(x, 2)) + ( 6 * pow(x, 3))</h6>
+                    <span class="text-danger" asp-validation-for="equation"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-4">
+                    <label for="exampleInputName1">Xi</label>
+                    <input asp-for="Xi" value="" type="text" class="form-control" id="exampleInputName1" placeholder="Xi">
+                    <span class="text-danger" asp-validation-for="Xi"></span>
+                </div>
+
+                
+
+                <div class="form-group col-4">
+                    <label for="exampleInputName1">eps</label>
+                    <input asp-for="EPS" value="" type="text" class="form-control" id="exampleInputName1" placeholder="eps">
+                    <span class="text-danger" asp-validation-for="EPS"></span>
+                </div>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-gradient-primary me-2">Calculate</button>
+            <button type="reset" class="btn btn-light">Cancel</button>
+        </form>
+    </div>
+
+    @if (Model.TableResult.Any())
+    {
+        <partial name="_SimpleFixedPointTable" model="Model.TableResult" />
+        <h4 class="text-primary ms-5 mb-5">Root = @Model.Root </h4>
+    }
+
+
+
+
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+}
+

@@ -1,0 +1,32 @@
+﻿@model List<Newton>
+<div class="card-body">
+
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th> # </th>
+                <th> Xi </th>
+                <th> f(Xi) </th>
+                <th> f`(Xi) </th>            
+                <th> error </th>
+            </tr>
+        </thead>
+
+
+        @foreach (var row in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@row.Iteration</td>
+                    <td>@row.Xi</td>
+                    <td>@row.F_Xi</td>
+                    <td>@row.DrivativeF_Xi</td>
+                    <td>@row.Error %</td>          
+                </tr>
+            </tbody>
+        }
+
+
+
+    </table>
+</div>

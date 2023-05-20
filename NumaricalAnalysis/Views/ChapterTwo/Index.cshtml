@@ -1,0 +1,397 @@
+﻿@model ChapterTwoFormViewModel
+@{
+    ViewData["Title"] = "Chapter Two";
+}
+
+
+
+
+
+
+<div class="card mb-5">
+    <div class="card-header">
+        <div class="page-header">
+            <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-collage"></i>
+                </span> Numerical Analysis Project :  @ViewData["Title"]
+            </h3>
+            <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+
+
+    <form asp-action="SolveMatrix" method="post">
+
+
+        <div class="  form-group ms-3">
+            <div class="col-sm-4">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" asp-for="usedMethod" id="membershipRadios1" value="@UsedMethod.GaussElimination" checked=""> Gauss Elimination Method <i class="input-helper"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" asp-for="usedMethod" id="membershipRadios2" value="@UsedMethod.LUDecomposition"> LU Decomposition Method <i class="input-helper"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" asp-for="usedMethod" id="membershipRadios2" value="@UsedMethod.CramerRule"> Cramer's Rule Method <i class="input-helper"></i>
+                    </label>
+                </div>
+            </div>
+
+            <span asp-validation-for="usedMethod" class="text-danger"></span>
+
+            <div class="row mb-3">
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="X1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X1</span>
+                        </div>
+
+                    </div>
+                    <span asp-validation-for="X1" class="text-danger"></span>
+
+                </div>
+
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="X2" aria-label=" Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X2</span>
+                        </div>
+
+                    </div>
+                    <span asp-validation-for="X2" class="text-danger"></span>
+                </div>
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="X3" aria-label=" Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X3</span>
+                        </div>
+
+                    </div>
+                    <span asp-validation-for="X3" class="text-danger"></span>
+                </div>
+
+
+
+
+
+                =
+
+
+
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="Xr" aria-label=" Username" aria-describedby="basic-addon1">
+
+
+                    </div>
+                    <span asp-validation-for="Xr" class="text-danger"></span>
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="Y1" aria-label=" Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X1</span>
+                        </div>
+
+                    </div>
+                    <span asp-validation-for="Y1" class="text-danger"></span>
+                </div>
+
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="Y2" aria-label=" Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X2</span>
+                        </div>
+
+                    </div>
+                    <span asp-validation-for="Y2" class="text-danger"></span>
+                </div>
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="Y3" aria-label=" Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X3</span>
+                        </div>
+
+                    </div>
+                    <span asp-validation-for="Y3" class="text-danger"></span>
+                </div>
+
+
+
+
+
+                =
+
+
+
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="Yr" aria-label=" Username" aria-describedby="basic-addon1">
+
+
+                    </div>
+                    <span asp-validation-for="Yr" class="text-danger"></span>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+            <div class="row mb-3">
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="Z1" aria-label=" Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X1</span>
+                        </div>
+
+                    </div>
+                    <span asp-validation-for="Z1" class="text-danger"></span>
+                </div>
+
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="Z2" aria-label=" Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X2</span>
+                        </div>
+
+                    </div>
+                    <span asp-validation-for="Z2" class="text-danger"></span>
+                </div>
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="Z3" aria-label=" Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X3</span>
+                        </div>
+
+                    </div>
+                    <span asp-validation-for="Z3" class="text-danger"></span>
+                </div>
+
+
+
+
+
+                =
+
+
+
+
+                <div class="col-2">
+
+                    <div class="input-group">
+
+                        <input type="text" class="form-control" value="" asp-for="Zr" aria-label=" Username" aria-describedby="basic-addon1">
+
+
+                    </div>
+                    <span asp-validation-for="Zr" class="text-danger"></span>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+            <div class="row mb-3">
+
+                <div class="col-2">
+                    <div class="form-check form-check-flat form-check-success">
+                        <label class="form-check-label">
+                            <input type="checkbox" asp-for="IsPivoting" class="form-check-input "> With Partial Pivoting ? <i class="input-helper"></i>
+                        </label>
+                    </div>
+                    <span asp-validation-for="IsPivoting" class="text-danger"></span>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+            <button class="btn btn-primary" type="submit">Calculate</button>
+            <button class="btn btn-secondary" type="submit">Cancel</button>
+
+        </div>
+
+
+
+
+
+
+    </form>
+
+
+
+   
+
+
+
+
+
+</div>
+
+
+
+
+@if (Model.Steps.Any())
+{
+
+    @foreach (var step in Model.Steps)
+    {
+        <partial name="_Steps" model="step" />
+
+    }
+
+
+
+
+
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row mb-3 justify-content-center">
+
+                <div class="col-3">
+
+                    <div class="input-group">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X1 = </span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="X" aria-label="Username" aria-describedby="basic-addon1">
+
+                    </div>
+                    <span asp-validation-for="X" class="text-danger"></span>
+
+                </div>
+
+
+                <div class="col-3">
+
+                    <div class="input-group">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X2 = </span>
+                        </div>
+                        <input type="text" class="form-control" asp-for="Y" aria-label="Username" aria-describedby="basic-addon1">
+
+                    </div>
+                    <span asp-validation-for="Y" class="text-danger"></span>
+                </div>
+
+                <div class="col-3">
+
+                    <div class="input-group">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">X3 = </span>
+                        </div>
+
+                        <input type="text" class="form-control" asp-for="Z" aria-label="Username" aria-describedby="basic-addon1">
+
+                    </div>
+                    <span asp-validation-for="Z" class="text-danger"></span>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+

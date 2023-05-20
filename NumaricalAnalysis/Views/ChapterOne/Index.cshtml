@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Chapter One";
+}
+
+
+
+<div class="card">
+    <div class="card-header">
+        <div class="page-header">
+            <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                    <i class="mdi mdi-diamond"></i>
+                </span> Numerical Analysis Project :  @ViewData["Title"]
+            </h3>
+            <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+    <div class="card-body">
+        <a asp-action="BisectionFalsePosition" asp-route-type="@MethodType.Bisection" class="btn btn-primary btn-fw">Bisection Method</a>
+        <a asp-action="BisectionFalsePosition" asp-route-type="@MethodType.FalsePosition" class="btn btn-secondary btn-fw">False Position Method</a>
+        <a asp-action="SimpleFixedPoint" class="btn btn-success btn-fw">Simple Fixed Point Method</a>
+        <a asp-action="Newton" class="btn btn-warning btn-fw">Newton Method</a>
+        <a asp-action="Secant" class="btn btn-info btn-fw">Secant Method</a>
+    </div>
+</div>
