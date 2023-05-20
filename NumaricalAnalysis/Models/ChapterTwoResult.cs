@@ -2,11 +2,13 @@
 {
     public class ChapterTwoResult
     {
+        public static UsedMethod usedMethod { get; set; }
+
+
         public string? Multiplier { get; set; } 
-        public string? ResultStep { get; set; } 
-
-        public double[,] Matrix { get; set; } = new double[3, 4];
-
+        public string? ResultStep { get; set; }
+               
+        public double[,] Matrix { get; set; } = new double[3,4];
 
     }
 }

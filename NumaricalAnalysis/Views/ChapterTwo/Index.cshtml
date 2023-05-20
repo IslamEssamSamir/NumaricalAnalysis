@@ -30,21 +30,21 @@
 
 
         <div class="  form-group ms-3">
-            <div class="col-sm-4">
+            <div class="Pivoting col-sm-4">
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" asp-for="usedMethod" id="membershipRadios1" value="@UsedMethod.GaussElimination" checked=""> Gauss Elimination Method <i class="input-helper"></i>
                     </label>
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="Pivoting col-sm-5">
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" asp-for="usedMethod" id="membershipRadios2" value="@UsedMethod.LUDecomposition"> LU Decomposition Method <i class="input-helper"></i>
                     </label>
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="notPivoting col-sm-5">
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" asp-for="usedMethod" id="membershipRadios2" value="@UsedMethod.CramerRule"> Cramer's Rule Method <i class="input-helper"></i>
@@ -53,6 +53,21 @@
             </div>
 
             <span asp-validation-for="usedMethod" class="text-danger"></span>
+
+
+
+            <div  class=" row mb-3">
+
+                <div class="col-2">
+                    <div class="form-check form-check-flat form-check-success">
+                        <label class="form-check-label">
+                            <input id="Pivoting"  type="checkbox" asp-for="IsPivoting" class="form-check-input "> With Partial Pivoting ? <i class="input-helper"></i>
+                        </label>
+                    </div>
+                    <span asp-validation-for="IsPivoting" class="text-danger"></span>
+                </div>
+
+            </div>
 
             <div class="row mb-3">
 
@@ -265,23 +280,7 @@
 
 
 
-            <div class="row mb-3">
-
-                <div class="col-2">
-                    <div class="form-check form-check-flat form-check-success">
-                        <label class="form-check-label">
-                            <input type="checkbox" asp-for="IsPivoting" class="form-check-input "> With Partial Pivoting ? <i class="input-helper"></i>
-                        </label>
-                    </div>
-                    <span asp-validation-for="IsPivoting" class="text-danger"></span>
-                </div>
-
-
-
-
-
-
-            </div>
+            @********************@
 
 
 
@@ -383,15 +382,39 @@
 
 
 
-
-
-
-
-
-
 }
 
 
 
 
+@section Scripts{
 
+    <script>
+        //document.getElementById("").addEventListener("se")
+        $(document).ready(function(){
+            $('.Pivoting').on('click',function(){
+                //$('#Pivoting').removeClass('d-none');
+                $('#Pivoting').removeAttr('disabled');
+              
+
+            });
+
+
+            $('.notPivoting').on('click', function () {
+                //$('#Pivoting').addClass('d-none');
+                $('#Pivoting').attr('disabled', 'disabled');
+                $('#Pivoting').prop('checked', false);
+             
+            });
+
+            
+
+        
+        
+        });
+
+
+    </script>
+
+
+}
