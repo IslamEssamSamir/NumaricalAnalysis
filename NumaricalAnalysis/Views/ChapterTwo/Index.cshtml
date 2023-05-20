@@ -61,7 +61,7 @@
                 <div class="col-2">
                     <div class="form-check form-check-flat form-check-success">
                         <label class="form-check-label">
-                            <input id="Pivoting"  type="checkbox" asp-for="IsPivoting" class="form-check-input "> With Partial Pivoting ? <i class="input-helper"></i>
+                            <input id="Pivoting" type="checkbox" @(Model.usedMethod == UsedMethod.CramerRule ? "disabled" : "") asp-for="IsPivoting" class="form-check-input "> With Partial Pivoting ? <i class="input-helper"></i>
                         </label>
                     </div>
                     <span asp-validation-for="IsPivoting" class="text-danger"></span>
