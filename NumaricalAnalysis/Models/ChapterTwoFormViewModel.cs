@@ -22,7 +22,7 @@ namespace NumaricalAnalysis.Models
         public double Z3 { get; set; }
         public double Zr { get; set; }
 
-        public bool IsPivoting { get; set; } 
+        public bool IsPivoting { get; set; }
 
         public List<ChapterTwoResult> Steps { get; set; } = new List<ChapterTwoResult>();
 
@@ -31,6 +31,11 @@ namespace NumaricalAnalysis.Models
         public double? X { get; set; }
         public double? Y { get; set; }
         public double? Z { get; set; }
+
+        // FOR LU Decomposition
+        public double? C1 { get; set; } = null;
+        public double? C2 { get; set; } = null;
+        public double? C3 { get; set; } = null;
 
     }
 }

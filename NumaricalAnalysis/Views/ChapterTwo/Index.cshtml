@@ -325,6 +325,71 @@
 
 
 
+    @if (Model.C1 != null)
+    {
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row mb-3 justify-content-center">
+
+                    <div class="col-3">
+
+                        <div class="input-group">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">C1 = </span>
+                            </div>
+                            <input type="text" class="form-control" asp-for="C1" aria-label="Username" aria-describedby="basic-addon1">
+
+                        </div>
+                        <span asp-validation-for="C1" class="text-danger"></span>
+
+                    </div>
+
+
+                    <div class="col-3">
+
+                        <div class="input-group">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">C2 = </span>
+                            </div>
+                            <input type="text" class="form-control" asp-for="Y" aria-label="Username" aria-describedby="basic-addon1">
+
+                        </div>
+                        <span asp-validation-for="C2" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-3">
+
+                        <div class="input-group">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">C3 = </span>
+                            </div>
+
+                            <input type="text" class="form-control" asp-for="Z" aria-label="Username" aria-describedby="basic-addon1">
+
+                        </div>
+                        <span asp-validation-for="C3" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    }
+
+
+
+
+
+
+
+
+
     <div class="card">
         <div class="card-body">
 
@@ -390,7 +455,18 @@
 @section Scripts{
 
     <script>
-        //document.getElementById("").addEventListener("se")
+
+
+
+
+
+        //prevent refresh on submit form
+        //document.getElementById("").addEventListener("click",(event) => {
+        //    event.preventDefault();
+
+        //});
+
+
         $(document).ready(function(){
             $('.Pivoting').on('click',function(){
                 //$('#Pivoting').removeClass('d-none');

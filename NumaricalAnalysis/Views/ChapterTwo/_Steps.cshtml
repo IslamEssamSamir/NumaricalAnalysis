@@ -6,8 +6,17 @@
     <div class="card-body">
 
 
-        @if (ChapterTwoResult.usedMethod == UsedMethod.GaussElimination)
+        @if (ChapterTwoResult.usedMethod == UsedMethod.GaussElimination || ChapterTwoResult.usedMethod == UsedMethod.LUDecomposition)
         {
+            <div class="row mb-2 justify-content-center ">
+                <div class="col-5 text-warning mb-3 ">
+                    <h3>
+                        @Model.UpperOrLowerMatrix
+                    </h3>
+                </div>
+            </div>
+
+
             <div class="row mb-2 justify-content-center ">
                 <div class="col-5 text-danger mb-3 ">
                     <h4>
@@ -54,8 +63,7 @@
             </div>
 
         }
-
-        @if (ChapterTwoResult.usedMethod == UsedMethod.CramerRule)
+        else if (ChapterTwoResult.usedMethod == UsedMethod.CramerRule)
         {
 
 

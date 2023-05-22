@@ -58,6 +58,24 @@ namespace NumaricalAnalysis.Controllers
                 model.Z = x3;
 
             }
+            else if (model.usedMethod == UsedMethod.LUDecomposition)
+            {
+                double[] matrixX =new double[3]; 
+                double[] matrixC = new double[3];
+                Results = _solveMatrix.LUDecomposition(matrix, model.IsPivoting, matrixC, matrixX);
+                model.Steps = Results;
+
+
+                model.X = matrixX[0];
+                model.Y = matrixX[1];
+                model.Z = matrixX[2];
+
+                model.C1 = matrixC[0];
+                model.C2 = matrixC[1];
+                model.C3 = matrixC[2];
+
+
+            }
 
 
 
