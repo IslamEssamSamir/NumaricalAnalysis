@@ -15,7 +15,12 @@ namespace NumaricalAnalysis.Helpers
         public List<ChapterTwoResult> GaussElimination(double[,] matrix, bool IsPivoting)
         {
             List<ChapterTwoResult> result = new List<ChapterTwoResult>();
-            ChapterTwoResult resultObj;
+
+            ChapterTwoResult resultObj = new();
+            CopyTo(matrix, resultObj.Matrix);
+            result.Add(resultObj);
+
+
             double m21, m31, m32;
 
             //step1
@@ -63,7 +68,7 @@ namespace NumaricalAnalysis.Helpers
             m32 = matrix[2, 1] / matrix[1, 1];
             resultObj = new ChapterTwoResult
             {
-                Multiplier = $"m21 = {matrix[2, 1]} / {matrix[1, 1]} = {m32}",
+                Multiplier = $"m32 = {matrix[2, 1]} / {matrix[1, 1]} = {m32}",
                 ResultStep = "R3 -->  R3 - (m32 * R2)"
             };
             ApplyRoleOnRow(matrix, RowNumber.ThirdRow, RowNumber.SecondRow, m32);
@@ -79,9 +84,15 @@ namespace NumaricalAnalysis.Helpers
         public List<ChapterTwoResult> LUDecomposition(double[,] matrix, bool IsPivoting, double[]  matrixC, double[] matrixX)
         {
             List<ChapterTwoResult> result = new List<ChapterTwoResult>();
+
+            ChapterTwoResult resultObj = new();
+            CopyTo(matrix, resultObj.Matrix);
+            result.Add(resultObj);
             double[] matrixB = new double[3];
-            ChapterTwoResult resultObj;
             double m21, m31, m32;
+
+
+   
 
 
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -108,7 +119,7 @@ namespace NumaricalAnalysis.Helpers
                 Multiplier = $"m21 = {matrix[1, 0]} / {matrix[0, 0]} = {m21}",
                 ResultStep = "R2 -->  R2 - (m21 * R1)"
             };
-            ApplyRoleOnRow(matrix, RowNumber.SecondRow, RowNumber.FirstRow, m21);
+            ApplyRoleOnRow(matrix, RowNumber.SecondRow, RowNumber.FirstRow, m21, UsedMethod.LUDecomposition);
             //resultObj.Matrix = matrix; note: array is refernce value   (logical error)  
             CopyTo(matrix, resultObj.Matrix);
             result.Add(resultObj);
@@ -121,7 +132,7 @@ namespace NumaricalAnalysis.Helpers
                 Multiplier = $"m31 = {matrix[2, 0]} / {matrix[0, 0]} = {m31}",
                 ResultStep = "R3 -->  R3 - (m31 * R1)"
             };
-            ApplyRoleOnRow(matrix, RowNumber.ThirdRow, RowNumber.FirstRow, m31);
+            ApplyRoleOnRow(matrix, RowNumber.ThirdRow, RowNumber.FirstRow, m31, UsedMethod.LUDecomposition);
             //resultObj.Matrix = matrix; note: array is refernce value   (logical error)  
             CopyTo(matrix, resultObj.Matrix);
             result.Add(resultObj);
@@ -138,10 +149,10 @@ namespace NumaricalAnalysis.Helpers
             m32 = matrix[2, 1] / matrix[1, 1];
             resultObj = new ChapterTwoResult
             {
-                Multiplier = $"m21 = {matrix[2, 1]} / {matrix[1, 1]} = {m32}",
+                Multiplier = $"m32 = {matrix[2, 1]} / {matrix[1, 1]} = {m32}",
                 ResultStep = "R3 -->  R3 - (m32 * R2)"
             };
-            ApplyRoleOnRow(matrix, RowNumber.ThirdRow, RowNumber.SecondRow, m32);
+            ApplyRoleOnRow(matrix, RowNumber.ThirdRow, RowNumber.SecondRow, m32, UsedMethod.LUDecomposition);
             //resultObj.Matrix = matrix; note: array is refernce value   (logical error)  
             resultObj.UpperOrLowerMatrix = "Upper Matrix";
 
@@ -155,18 +166,18 @@ namespace NumaricalAnalysis.Helpers
             CopyTo(MatrixL, resultObj.Matrix);
             result.Add(resultObj);
 
-            double c1 = matrixB[0];
-            double c2 = matrixB[1] - (c1 * m21);
-            double c3 = matrixB[2] - (c1 * m31) + (c2 * m32);
+            double c1 = matrix[0,3];
+            double c2 = matrix[1,3] - (m21 * c1);
+            double c3 = matrix[2,3] - (m31 * c1) - (m32*c2);
 
 
             matrixC[0] = c1;
             matrixC[1] = c2;
             matrixC[2] = c3;
 
-            double x3 = matrix[2,3] / matrix[2,2];
+            double x3 = c3 / matrix[2,2];
             double x2 = (c2 - (matrix[1, 2] * x3)) / matrix[1, 1];
-            double x1 = ((c1-(matrix[0, 2]*x3)+ matrix[0, 1] * x2)) / matrix[0,0];
+            double x1 = (c1-(matrix[0, 2]*x3)- (matrix[0, 1] * x2)) / matrix[0,0];
 
             matrixX[0] = x1;
             matrixX[1] = x2;
@@ -320,6 +331,12 @@ namespace NumaricalAnalysis.Helpers
 
                     if (RowOfMaxValue != RowNumber.FirstRow)
                         SwapRow(matrix, RowNumber.FirstRow, RowOfMaxValue);
+
+
+                    if (matrix[1, 0] < matrix[2, 0])
+                        SwapRow(matrix, RowNumber.SecondRow, RowNumber.ThirdRow);
+
+
                     return true;
 
 
@@ -329,7 +346,7 @@ namespace NumaricalAnalysis.Helpers
                     maxValue = matrix[0, 0];
                     for (int i = 1; i < matrix.GetLength(0); i++)
                     {
-                        if (matrix[i, (int)columnNumber] > matrix[(int)RowOfMaxValue, (int)columnNumber])
+                        if (Math.Abs(matrix[i, (int)columnNumber]) > Math.Abs(matrix[(int)RowOfMaxValue, (int)columnNumber]))
                             RowOfMaxValue = (RowNumber)i;
                     }
 
@@ -349,12 +366,20 @@ namespace NumaricalAnalysis.Helpers
         /// <param name="rowNum"></param> R2 (Row)
         /// <param name="rowMultipliedByM"></param> R1 (row of diagonal element)
         /// <param name="multiplyNum_M"></param> m21( no. convert to zero / diagonal element )
-        private void ApplyRoleOnRow(double[,] matrix, RowNumber rowNum, RowNumber rowMultipliedByM, double multiplyNum_M)
+        private void ApplyRoleOnRow(double[,] matrix, RowNumber rowNum, RowNumber rowMultipliedByM, double multiplyNum_M, UsedMethod? usedMethod = UsedMethod.GaussElimination )
         {
-            for (int i = 0; i < matrix.GetLength(1); i++)
+            if(usedMethod == UsedMethod.LUDecomposition)
             {
-                matrix[(int)rowNum, i] -= (matrix[(int)rowMultipliedByM, i] * multiplyNum_M);
+                for (int i = 0; i < matrix.GetLength(1)-1; i++)
+                    matrix[(int)rowNum, i] -= (matrix[(int)rowMultipliedByM, i] * multiplyNum_M);
             }
+            else
+            {
+                for (int i = 0; i < matrix.GetLength(1); i++)
+                    matrix[(int)rowNum, i] -= (matrix[(int)rowMultipliedByM, i] * multiplyNum_M);
+            }
+          
+            
         }
 
         private void CopyTo(double[,] matrix, double[,] copyToThisMatrix)

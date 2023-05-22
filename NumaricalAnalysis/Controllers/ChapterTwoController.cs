@@ -27,6 +27,21 @@ namespace NumaricalAnalysis.Controllers
         {
             ChapterTwoResult.usedMethod = model.usedMethod; // to handle _steps  partial view..
             List<ChapterTwoResult> Results;
+
+            if (!ModelState.IsValid)
+                return View(nameof(Index), model);
+
+            
+            
+
+
+            if(!model.IsPivoting && model.usedMethod != UsedMethod.CramerRule && (model.X1 == 0 /*|| model.X1 < model.Y1 || model.X1 < model.Z1*/))
+            {
+                ModelState.AddModelError(nameof(model.IsPivoting), errorMessage: "You Must Choose with IsPivoting option in this case  ...");
+                return View(nameof(Index), model);
+            }
+
+
             double[,] matrix = new double[3, 4]
             {
                 {model.X1, model.X2, model.X3, model.Xr },

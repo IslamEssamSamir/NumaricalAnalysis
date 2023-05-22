@@ -30,24 +30,24 @@
 
 
         <div class="  form-group ms-3">
-            <div class="Pivoting col-sm-4">
+            <div class=" col-sm-4">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" asp-for="usedMethod" id="membershipRadios1" value="@UsedMethod.GaussElimination" checked=""> Gauss Elimination Method <i class="input-helper"></i>
+                        <input type="radio" class="Pivoting form-check-input" asp-for="usedMethod" id="membershipRadios1" value="@UsedMethod.GaussElimination" checked=""> Gauss Elimination Method <i class="input-helper"></i>
                     </label>
                 </div>
             </div>
-            <div class="Pivoting col-sm-5">
+            <div class=" col-sm-5">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" asp-for="usedMethod" id="membershipRadios2" value="@UsedMethod.LUDecomposition"> LU Decomposition Method <i class="input-helper"></i>
+                        <input type="radio" class="Pivoting form-check-input" asp-for="usedMethod" id="membershipRadios2" value="@UsedMethod.LUDecomposition"> LU Decomposition Method <i class="input-helper"></i>
                     </label>
                 </div>
             </div>
-            <div class="notPivoting col-sm-5">
+            <div class=" col-sm-5">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" asp-for="usedMethod" id="membershipRadios2" value="@UsedMethod.CramerRule"> Cramer's Rule Method <i class="input-helper"></i>
+                        <input type="radio" class="notPivoting form-check-input" asp-for="usedMethod" id="membershipRadios2" value="@UsedMethod.CramerRule"> Cramer's Rule Method <i class="input-helper"></i>
                     </label>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 <div class="col-2">
                     <div class="form-check form-check-flat form-check-success">
                         <label class="form-check-label">
-                            <input id="Pivoting" type="checkbox" @(Model.usedMethod == UsedMethod.CramerRule ? "disabled" : "") asp-for="IsPivoting" class="form-check-input "> With Partial Pivoting ? <i class="input-helper"></i>
+                            <input asp-for="IsPivoting" id="Pivoting" type="checkbox"  class="form-check-input"> With Partial Pivoting ? <i class="input-helper"></i>
                         </label>
                     </div>
                     <span asp-validation-for="IsPivoting" class="text-danger"></span>
@@ -354,7 +354,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">C2 = </span>
                             </div>
-                            <input type="text" class="form-control" asp-for="Y" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" asp-for="C2" aria-label="Username" aria-describedby="basic-addon1">
 
                         </div>
                         <span asp-validation-for="C2" class="text-danger"></span>
@@ -368,7 +368,7 @@
                                 <span class="input-group-text">C3 = </span>
                             </div>
 
-                            <input type="text" class="form-control" asp-for="Z" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" asp-for="C3" aria-label="Username" aria-describedby="basic-addon1">
 
                         </div>
                         <span asp-validation-for="C3" class="text-danger"></span>
@@ -456,18 +456,30 @@
 
     <script>
 
+        // on submiting and reload form .....
+        $(window).on("load", function () {
+            var usedMethod = $("input[name='usedMethod']:checked").val();          
+            if (usedMethod == "CramerRule") {
+           
+                $('#Pivoting').attr('disabled', 'disabled');
+                $('#Pivoting').prop('checked', false);
+            }
+        });
 
 
 
 
         //prevent refresh on submit form
-        //document.getElementById("").addEventListener("click",(event) => {
+        //document.getElementById("#Pivoting").addEventListener("click", (event) => {
         //    event.preventDefault();
 
         //});
 
 
         $(document).ready(function(){
+
+
+
             $('.Pivoting').on('click',function(){
                 //$('#Pivoting').removeClass('d-none');
                 $('#Pivoting').removeAttr('disabled');
@@ -483,10 +495,7 @@
              
             });
 
-            
-
-        
-        
+       
         });
 
 
