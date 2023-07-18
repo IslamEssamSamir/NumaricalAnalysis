@@ -1,0 +1,77 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = NumaricalAnalysis
+build_property.RootNamespace = NumaricalAnalysis
+build_property.ProjectDir = C:\Users\Islam\OneDrive\Desktop\NumaricalAnalysis\NumaricalAnalysis\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Islam\OneDrive\Desktop\NumaricalAnalysis\NumaricalAnalysis
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterOne/BisectionFalsePosition.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlck9uZVxCaXNlY3Rpb25GYWxzZVBvc2l0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterOne/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlck9uZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterOne/Newton.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlck9uZVxOZXd0b24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterOne/Secant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlck9uZVxTZWNhbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterOne/SimpleFixedPoint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlck9uZVxTaW1wbGVGaXhlZFBvaW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterOne/_BisectionAndFalsePositionTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlck9uZVxfQmlzZWN0aW9uQW5kRmFsc2VQb3NpdGlvblRhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterOne/_NewtonTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlck9uZVxfTmV3dG9uVGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterOne/_SecantTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlck9uZVxfU2VjYW50VGFibGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterOne/_SimpleFixedPointTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlck9uZVxfU2ltcGxlRml4ZWRQb2ludFRhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterTwo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlclR3b1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/ChapterTwo/_Steps.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlclR3b1xfU3RlcHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Islam/OneDrive/Desktop/NumaricalAnalysis/NumaricalAnalysis/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-kr1n0itxtz
