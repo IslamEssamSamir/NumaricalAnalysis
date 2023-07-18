@@ -12,9 +12,9 @@ Numerical Analysis Web Application
 
 
  
-##Introduction
+## Introduction
 
-###Introduction
+### Introduction
 
 It’s a web application which finding the roots of polynomials and solve linear algebric equation by of matrices .
 
@@ -28,9 +28,9 @@ As a Front-End: we used HTML and CSS Template.
 As a Back-End:
 •	ASP.NET 6 (MVC) Design Pattern
  
-##Chapter 1
+## Chapter 1
 
-###Bisection Method
+### Bisection Method
 
 The bisection method is a numerical algorithm used to find the root of a function within a specified interval. It relies on the concept of repeatedly dividing the interval in half and narrowing down the search space until the root is found or a desired level of accuracy is achieved.
 Here's how the bisection method works:
@@ -51,7 +51,7 @@ Overall, the bisection method is a straightforward and reliable technique for fi
  
 
 
-###False Position Method
+### False Position Method
 
 The false position method, also known as the regula falsi method, is a numerical algorithm used to approximate the root of a function within a specified interval. It is similar to the bisection method but takes into account the function values at the endpoints of the interval to provide a more accurate estimate.
 Here's how the false position method works:
@@ -74,7 +74,7 @@ In summary, the false position method is a variation of the bisection method tha
  
 
 
-###Simple Fixed Point Method
+### Simple Fixed Point Method
 
 Apologies for the confusion in my previous response. The "simple fixed-point method" you referred to is a different term for the method known as the "fixed-point iteration method."
 In the fixed-point iteration method, the goal is to find the fixed point of a function, which is a value where the function's output is equal to its input, i.e., f(x) = x. This method involves iteratively applying a function transformation to an initial guess to converge to the fixed point.
@@ -92,7 +92,7 @@ Overall, the simple fixed-point method is an iterative technique used to find th
 
 
 
-###Newton Method
+### Newton Method
 The Newton's method, also known as Newton-Raphson method, is a numerical algorithm used to approximate the roots of a differentiable function. It provides a way to iteratively refine an initial guess to converge to a more accurate solution.
 Here's how the Newton's method works:
 1.	Start with an initial guess x₀ for the root of the function.
@@ -110,7 +110,7 @@ In summary, the Newton's method is an iterative technique for finding the roots 
 
 
 
-###Secant Method
+### Secant Method
 
 The secant method is a numerical algorithm used to approximate the roots of a function. It is an iterative method that does not require knowledge of the derivative of the function, making it a useful alternative when the derivative is difficult to compute or unavailable.
 Here's how the secant method works:
@@ -131,9 +131,9 @@ In summary, the secant method is an iterative numerical algorithm for approximat
 
 
 
-##Chapter 2
+## Chapter 2
 
-###Gauss Elimination
+### Gauss Elimination
 Gauss elimination, also known as Gaussian elimination, is a widely used method in linear algebra for solving systems of linear equations. It aims to transform a system of equations into an equivalent, simpler system that can be easily solved.
 Here's how the Gauss elimination method works:
 1.	Write the system of linear equations in matrix form. For example, if we have n equations with n variables, the system can be represented as Ax = b, where A is an n x n coefficient matrix, x is a column vector of the variables, and b is a column vector of constants on the right-hand side.
@@ -153,7 +153,7 @@ Gauss elimination is an efficient method for solving systems of linear equations
 
 
 
-###LU Decomposition Method
+### LU Decomposition Method
 LU decomposition, also known as LU factorization, is a numerical method used to decompose a square matrix into the product of two matrices: a lower triangular matrix (L) and an upper triangular matrix (U). This decomposition is useful in solving systems of linear equations and in matrix inversion.
 Here's how the LU decomposition method works:
 1.	Start with a square matrix A of size n x n, which represents the coefficients of a system of linear equations or any other square matrix that needs to be decomposed.
@@ -169,7 +169,7 @@ The LU decomposition method provides a versatile and efficient approach for solv
 
 
 
-###Cramer’s Rule
+### Cramer’s Rule
 Cramer's rule is a method used to solve systems of linear equations by expressing the solution in terms of determinants. It provides a formulaic approach to find the values of the variables in a system of equations without the need for matrix inversion.
 Here's how Cramer's rule works for a system of linear equations:
 1.	Consider a system of linear equations with n variables: a₁₁x₁ + a₁₂x₂ + ... + a₁ₙxₙ = b₁ a₂₁x₁ + a₂₂x₂ + ... + a₂ₙxₙ = b₂ ... aₙ₁x₁ + aₙ₂x₂ + ... + aₙₙxₙ = bₙ
